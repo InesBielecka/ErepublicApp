@@ -51,10 +51,12 @@ namespace ErepublicApp
                 var objects = JObject.Parse(campaignsString); // parse as array  
                 var campaings = objects.ToObject<Campaigns>();
                 //var battles = objects["battles"];
+
+                
                 foreach(var bitwa in campaings.Battles)
                 {
+
                     tb1_battleId.Text = bitwa.Value.Id.ToString();
-                    textBox.Text = bitwa.Value.Div.Second.Div.ToString()??"";
                 }
                 //var battlesModel = battles.ToObject<List<Battle>>();
 
