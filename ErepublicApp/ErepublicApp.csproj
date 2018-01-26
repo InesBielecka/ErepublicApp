@@ -68,7 +68,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Constants.cs" />
     <Compile Include="Models\AllyList.cs" />
     <Compile Include="Models\Battle.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -103,7 +102,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="ConfigurationFiles\CountryName.json" />
-    <None Include="CountryName.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
