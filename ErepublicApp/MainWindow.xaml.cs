@@ -78,8 +78,9 @@ namespace ErepublicApp
                 foreach (var batl in chosenBattle)
                 {
                     lbl_type_show.Content = batl.Type.ToString();
-                    lbl_region_show.Content = batl.Region.ToString();
+                    lbl_region_show.Content = batl.Region.Name.ToString();
                 }
+
 
                 //var polskieWalki = campaings.Battles.Values.Where(x => x.Invader.Id == 35 || x.Defender.Id == 35);
                 //var liczbaPolskichWalk = polskieWalki.Count();
