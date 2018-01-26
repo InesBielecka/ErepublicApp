@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,14 +12,19 @@ namespace ErepublicApp.Models
     public class Countries
     {
 
+        public List<Country> Countrie { get; set; }
         public void LoadJson()
         {
-            using (StreamReader r = new StreamReader("CountryName.json"))
+            using (StreamReader r = new StreamReader("c:\\users\\ines\\documents\\visual studio 2015\\Projects\\ErepublicApp\\ErepublicApp\\CountryName.json"))
             {
                 string json = r.ReadToEnd();
-                List<Country> countries = JsonConvert.DeserializeObject<List<Country>>(json);
+                Countrie = JsonConvert.DeserializeObject<List<Country>>(json);
             }
 
+        }
+        public List<Country> GetAll()
+        {
+            return Countrie;
         }
     }
 

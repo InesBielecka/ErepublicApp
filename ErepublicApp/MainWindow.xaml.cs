@@ -19,6 +19,7 @@ using System.Net.Http.Headers;
 using Newtonsoft.Json.Linq;
 using ErepublicApp.Models;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json;
 
 namespace ErepublicApp
 {
@@ -55,6 +56,7 @@ namespace ErepublicApp
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+        
 
         private void btn_show_battle_Click(object sender, RoutedEventArgs e)
         {
@@ -79,7 +81,14 @@ namespace ErepublicApp
                 {
                     lbl_type_show.Content = batl.Type.ToString();
                     lbl_region_show.Content = batl.Region.Name.ToString();
+
+                    var ctr = new Countries();
+                    ctr.LoadJson();
+                    var countriesList = ctr.Countrie;
+                    var countryName = countriesList.First(x => x.Id == batl.Invader.Id).Name;
+                    lbl_invader_country_name.Content = countryName;
                 }
+
 
 
                 //var polskieWalki = campaings.Battles.Values.Where(x => x.Invader.Id == 35 || x.Defender.Id == 35);
