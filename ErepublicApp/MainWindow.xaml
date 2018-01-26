@@ -7,8 +7,55 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="53,108,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="textBox_TextChanged"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="170,167,0,0" VerticalAlignment="Top" Width="75" Click="button_Click_1"/>
-        <TextBox x:Name="tb1_battleId" HorizontalAlignment="Left" Height="23" Margin="308,108,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="tb1_battleId_TextChanged"/>
+        <TextBox x:Name="txtbx_battle_id" HorizontalAlignment="Left" Height="23" Margin="40,26,0,0" TextWrapping="Wrap" Text="Type Battle ID" VerticalAlignment="Top" Width="120" TextChanged="txtbx_battle_id_TextChanged" GotFocus="txtbx_battle_id_GotFocus" PreviewTextInput="NumberValidationTxtbx_battle_id"/>
+        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="82" Margin="15,142,0,0" VerticalAlignment="Top" Width="329" SelectionChanged="tabControl_SelectionChanged" RenderTransformOrigin="0.5,0.5">
+            <TabControl.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.171"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.497"/>
+                </TransformGroup>
+            </TabControl.RenderTransform>
+            <TabItem Header="Division 1">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="label5" Content="Wall For" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="101"/>
+                    <Label x:Name="label6" Content="" HorizontalAlignment="Left" Margin="99,10,0,0" VerticalAlignment="Top" Width="204"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Division 2">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="label66" Content="Wall For" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="101"/>
+                    <Label x:Name="label67" Content="" HorizontalAlignment="Left" Margin="99,10,0,0" VerticalAlignment="Top" Width="204"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Division 3" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="67" Margin="-2,-2,-10,0">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="label68" Content="Wall For" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="101"/>
+                    <Label x:Name="label69" Content="" HorizontalAlignment="Left" Margin="99,10,0,0" VerticalAlignment="Top" Width="204"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Division 4" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="66" Margin="-2,-2,-9,0">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="label70" Content="Wall For" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="101"/>
+                    <Label x:Name="label71" Content="" HorizontalAlignment="Left" Margin="99,10,0,0" VerticalAlignment="Top" Width="204"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Aircraft" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="55">
+                <Grid Background="#FFE5E5E5">
+                    <Label x:Name="label72" Content="Wall For" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="101"/>
+                    <Label x:Name="label73" Content="" HorizontalAlignment="Left" Margin="99,10,0,0" VerticalAlignment="Top" Width="204"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Label x:Name="label1" Content="Type" HorizontalAlignment="Left" Margin="40,72,0,0" VerticalAlignment="Top" Width="45"/>
+        <Label x:Name="label2" Content="Region" HorizontalAlignment="Left" Margin="40,103,0,0" VerticalAlignment="Top" Width="57"/>
+        <Label x:Name="label3" Content="Invader" HorizontalAlignment="Left" Margin="274,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.868,0.346" Width="67"/>
+        <Label x:Name="label4" Content="Defender" HorizontalAlignment="Left" Margin="274,103,0,0" VerticalAlignment="Top" Width="67"/>
+        <Label x:Name="lbl_type_show" Content="" HorizontalAlignment="Left" Margin="122,72,0,0" VerticalAlignment="Top" Width="95"/>
+        <Label x:Name="label8" Content="" HorizontalAlignment="Left" Margin="122,103,0,0" VerticalAlignment="Top" Width="95"/>
+        <Label x:Name="label9" Content="" HorizontalAlignment="Left" Margin="346,72,0,0" VerticalAlignment="Top" Width="148"/>
+        <Label x:Name="label10" Content="" HorizontalAlignment="Left" Margin="346,103,0,0" VerticalAlignment="Top" Width="148"/>
+        <Button x:Name="btn_show_battle" Content="Show" HorizontalAlignment="Left" Margin="233,29,0,0" VerticalAlignment="Top" Width="75" Click="btn_show_battle_Click"/>
     </Grid>
 </Window>

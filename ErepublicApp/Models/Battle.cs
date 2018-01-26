@@ -24,9 +24,9 @@ namespace ErepublicApp.Models
         public BattleSite Invader { get; set; }
         [JsonProperty("def")]
         public BattleSite Defender { get; set; }
-        public KeyValuePair<string, Division> Div { get; set; }
+        public Dictionary<string, Division> Div { get; set; }
         public DominationPoints Dom_pts { get; set; }
-        public Wall Wall { get; set; }
+        
 
     }
 }
