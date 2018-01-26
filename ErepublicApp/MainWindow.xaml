@@ -53,7 +53,7 @@
         <Label x:Name="label3" Content="Invader" HorizontalAlignment="Left" Margin="274,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.868,0.346" Width="67"/>
         <Label x:Name="label4" Content="Defender" HorizontalAlignment="Left" Margin="274,103,0,0" VerticalAlignment="Top" Width="67"/>
         <Label x:Name="lbl_type_show" Content="" HorizontalAlignment="Left" Margin="122,72,0,0" VerticalAlignment="Top" Width="95"/>
-        <Label x:Name="label8" Content="" HorizontalAlignment="Left" Margin="122,103,0,0" VerticalAlignment="Top" Width="95"/>
+        <Label x:Name="lbl_region_show" Content="" HorizontalAlignment="Left" Margin="122,103,0,0" VerticalAlignment="Top" Width="95"/>
         <Label x:Name="label9" Content="" HorizontalAlignment="Left" Margin="346,72,0,0" VerticalAlignment="Top" Width="148"/>
         <Label x:Name="label10" Content="" HorizontalAlignment="Left" Margin="346,103,0,0" VerticalAlignment="Top" Width="148"/>
         <Button x:Name="btn_show_battle" Content="Show" HorizontalAlignment="Left" Margin="233,29,0,0" VerticalAlignment="Top" Width="75" Click="btn_show_battle_Click"/>

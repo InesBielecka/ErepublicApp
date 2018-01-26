@@ -63,6 +63,7 @@ namespace ErepublicApp
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             HttpResponseMessage response = client.GetAsync("").Result;
+
             if (response.IsSuccessStatusCode)
             {
                 var campaignsString = response.Content.ReadAsStringAsync().Result; // ReadAsA sync<IEnumerable<Employee>>().Result;
@@ -71,13 +72,13 @@ namespace ErepublicApp
                 var campaings = objects.ToObject<Campaigns>();
 
                 int battleId = Int32.Parse(txtbx_battle_id.Text);
+                var chosenBattle = campaings.Battles.Values.Where(x => x.Id == battleId);
+                
 
-                foreach (int batl in campaings.Battles.Keys)
+                foreach (var batl in chosenBattle)
                 {
-                    if(battleId == batl)
-                    {
-                        lbl_type_show.Content = 
-                    }
+                    lbl_type_show.Content = batl.Type.ToString();
+                    lbl_region_show.Content = batl.Region.ToString();
                 }
 
                 //var polskieWalki = campaings.Battles.Values.Where(x => x.Invader.Id == 35 || x.Defender.Id == 35);
