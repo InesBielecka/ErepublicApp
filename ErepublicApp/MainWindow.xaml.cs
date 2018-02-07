@@ -85,6 +85,31 @@ namespace ErepublicApp
                     lbl_invader_country_name.Content = Constants.countriesDic[countryInvId];
                     int countryDefId = batl.Defender.Id;
                     lbl_defender_country_name.Content = Constants.countriesDic[countryDefId];
+
+                    if (batl.Type.ToString() == "tanks")
+                    {
+                        int countryWallForIdDiv1 = batl.Div["1"].Wall.For;
+                        lbl_wall_for_div1.Content = Constants.countriesDic[countryWallForIdDiv1];
+                        lbl_wall_dom_div1.Content = batl.Div["1"].Wall.Dom.ToString();
+
+                        int countryWallForIdDiv2 = batl.Div["2"].Wall.For;
+                        lbl_wall_for_div2.Content = Constants.countriesDic[countryWallForIdDiv2];
+                        lbl_wall_dom_div2.Content = batl.Div["2"].Wall.Dom.ToString();
+
+                        int countryWallForIdDiv3 = batl.Div["3"].Wall.For;
+                        lbl_wall_for_div3.Content = Constants.countriesDic[countryWallForIdDiv3];
+                        lbl_wall_dom_div3.Content = batl.Div["3"].Wall.Dom.ToString();
+
+                        int countryWallForIdDiv4 = batl.Div["4"].Wall.For;
+                        lbl_wall_for_div4.Content = Constants.countriesDic[countryWallForIdDiv4];
+                        lbl_wall_dom_div4.Content = batl.Div["4"].Wall.Dom.ToString();
+                    }
+                    else
+                    {
+                        int countrWallForIdAir = batl.Div["11"].Wall.For;
+                        lbl_wall_for_air.Content = Constants.countriesDic[countrWallForIdAir];
+                        lbl_wall_dom_air.Content = batl.Div["11"].Wall.Dom.ToString();
+                    }
                 }
 
 
