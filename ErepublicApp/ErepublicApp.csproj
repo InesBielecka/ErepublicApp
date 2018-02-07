@@ -68,6 +68,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Constants.cs" />
     <Compile Include="Models\AllyList.cs" />
     <Compile Include="Models\Battle.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -79,7 +80,6 @@
     <Compile Include="Models\BattleSite.cs" />
     <Compile Include="Models\Campaigns.cs" />
     <Compile Include="Models\CombatOrder.cs" />
-    <Compile Include="Models\Countries.cs" />
     <Compile Include="Models\Division.cs" />
     <Compile Include="Models\DominationPoints.cs" />
     <Compile Include="Models\Region.cs" />

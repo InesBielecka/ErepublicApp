@@ -20,7 +20,7 @@
             <TabItem Header="Division 1">
                 <Grid Background="#FFE5E5E5">
                     <Label x:Name="label5" Content="Wall For" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="101"/>
-                    <Label x:Name="label6" Content="" HorizontalAlignment="Left" Margin="99,10,0,0" VerticalAlignment="Top" Width="204"/>
+                    <Label x:Name="label6" Content="" HorizontalAlignment="Left" Margin="111,10,0,0" VerticalAlignment="Top" Width="192"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Division 2">

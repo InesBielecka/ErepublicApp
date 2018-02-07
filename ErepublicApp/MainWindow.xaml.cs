@@ -81,12 +81,10 @@ namespace ErepublicApp
                 {
                     lbl_type_show.Content = batl.Type.ToString();
                     lbl_region_show.Content = batl.Region.Name.ToString();
-
-                    var ctr = new Countries();
-                    ctr.LoadJson();
-                    var countriesList = ctr.Countrie;
-                    var countryName = countriesList.First(x => x.Id == batl.Invader.Id).Name;
-                    lbl_invader_country_name.Content = countryName;
+                    int countryInvId = batl.Invader.Id;
+                    lbl_invader_country_name.Content = Constants.countriesDic[countryInvId];
+                    int countryDefId = batl.Defender.Id;
+                    lbl_defender_country_name.Content = Constants.countriesDic[countryDefId];
                 }
 
 
