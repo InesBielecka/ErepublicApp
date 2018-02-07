@@ -27,12 +27,25 @@ namespace ErepublicApp
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     /// 
+    public class TabTemplate
+    {
+        public object Template { get; private set; }
+
+        public TabTemplate(object content)
+        {
+            Template = content;
+        }
+    }
+
+
     public partial class MainWindow : Window
     {
+        private TabTemplate template;
         public MainWindow()
         {
 
             InitializeComponent();
+            template = new TabTemplate(tab_battle_id.Content);
         }
 
 
@@ -76,58 +89,44 @@ namespace ErepublicApp
                 int battleId = Int32.Parse(txtbx_battle_id.Text);
                 var chosenBattle = campaings.Battles.Values.Where(x => x.Id == battleId);
 
-                tabControlBattles.Items.Add(new TabItem { Header = battleId.ToString() });
 
-                foreach (var batl in chosenBattle)
+                if(tabControlBattles.Items.Count > 1)
                 {
-                    
-                    lbl_type_show.Content = batl.Type.ToString();
-                    lbl_region_show.Content = batl.Region.Name.ToString();
-                    int countryInvId = batl.Invader.Id;
-                    lbl_invader_country_name.Content = Constants.countriesDic[countryInvId];
-                    int countryDefId = batl.Defender.Id;
-                    lbl_defender_country_name.Content = Constants.countriesDic[countryDefId];
-                   
-                    if (batl.Type.ToString() == "tanks")
-                    {
-                        tab_air.IsEnabled = false;
-                        tab_div1.IsEnabled = true;
-                        tab_div2.IsEnabled = true;
-                        tab_div3.IsEnabled = true;
-                        tab_div4.IsEnabled = true;
-                        tab_div4.Focus();
-
-                        int countryWallForIdDiv1 = batl.Div["1"].Wall.For;
-                        lbl_wall_for_div1.Content = Constants.countriesDic[countryWallForIdDiv1];
-                        lbl_wall_dom_div1.Content = batl.Div["1"].Wall.Dom.ToString();
-
-                        int countryWallForIdDiv2 = batl.Div["2"].Wall.For;
-                        lbl_wall_for_div2.Content = Constants.countriesDic[countryWallForIdDiv2];
-                        lbl_wall_dom_div2.Content = batl.Div["2"].Wall.Dom.ToString();
-
-                        int countryWallForIdDiv3 = batl.Div["3"].Wall.For;
-                        lbl_wall_for_div3.Content = Constants.countriesDic[countryWallForIdDiv3];
-                        lbl_wall_dom_div3.Content = batl.Div["3"].Wall.Dom.ToString();
-
-                        int countryWallForIdDiv4 = batl.Div["4"].Wall.For;
-                        lbl_wall_for_div4.Content = Constants.countriesDic[countryWallForIdDiv4];
-                        lbl_wall_dom_div4.Content = batl.Div["4"].Wall.Dom.ToString();
-                    }
-                    else
-                    {
-                        tab_div1.IsEnabled = false;
-                        tab_div2.IsEnabled = false;
-                        tab_div3.IsEnabled = false;
-                        tab_div4.IsEnabled = false;
-                        tab_air.IsEnabled = true;
-                        tab_air.Focus();
-
-                        int countrWallForIdAir = batl.Div["11"].Wall.For;
-                        lbl_wall_for_air.Content = Constants.countriesDic[countrWallForIdAir];
-                        lbl_wall_dom_air.Content = batl.Div["11"].Wall.Dom.ToString();
-                    }
+                    template = new TabTemplate(tab_battle_id.Content);
+                    var tabItemNew = new TabItem { Header = battleId.ToString(), Content = template.Template };
+                    var tabItemNewIndex = tabControlBattles.Items.Add(tabItemNew);
+                }
+                else
+                {
+                    var tabItemNew = new TabItem { Header = battleId.ToString(), Content = template.Template };
+                    var tabItemNewIndex = tabControlBattles.Items.Add(tabItemNew);
                 }
 
+                    foreach (var batl in chosenBattle)
+                    {
+                        lbl_type_show.Content = batl.Type.ToString();
+                        lbl_region_show.Content = batl.Region.Name.ToString();
+                        int countryInvId = batl.Invader.Id;
+                        lbl_invader_country_name.Content = Constants.countriesDic[countryInvId];
+                        int countryDefId = batl.Defender.Id;
+                        lbl_defender_country_name.Content = Constants.countriesDic[countryDefId];
+
+                        if (batl.Type.ToString() == "tanks")
+                        {
+                            EnableTabs(true);
+
+                            SetWall(batl, "1", lbl_wall_for_div1, lbl_wall_dom_div1);
+                            SetWall(batl, "2", lbl_wall_for_div2, lbl_wall_dom_div2);
+                            SetWall(batl, "4", lbl_wall_for_div3, lbl_wall_dom_div3);
+                            SetWall(batl, "3", lbl_wall_for_div4, lbl_wall_dom_div4);
+                        }
+                        else
+                        {
+                            EnableTabs(false);
+                            SetWall(batl, "11", lbl_wall_for_air, lbl_wall_dom_air);
+                        }
+                    }
+                
 
 
                 //var polskieWalki = campaings.Battles.Values.Where(x => x.Invader.Id == 35 || x.Defender.Id == 35);
@@ -156,6 +155,30 @@ namespace ErepublicApp
                 MessageBox.Show("Error Code" + response.StatusCode + " : Message - " + response.ReasonPhrase);
             }
 
+        }
+
+        private void EnableTabs(bool IsTankBattle)
+        {
+            tab_air.IsEnabled = !IsTankBattle;
+            tab_div1.IsEnabled = IsTankBattle;
+            tab_div2.IsEnabled = IsTankBattle;
+            tab_div3.IsEnabled = IsTankBattle;
+            tab_div4.IsEnabled = IsTankBattle;
+            if(IsTankBattle)
+            {
+                tab_div4.Focus();
+            }
+            else
+            {
+                tab_air.Focus();
+            }
+        }
+
+        private void SetWall(Battle batl, string divNumber, Label lbl_wall_for, Label lbl_wall_dom)
+        {
+            int countryWallForId = batl.Div[divNumber].Wall.For;
+            lbl_wall_for.Content = Constants.countriesDic[countryWallForId];
+            lbl_wall_dom.Content = batl.Div[divNumber].Wall.Dom.ToString();
         }
     }
 }
