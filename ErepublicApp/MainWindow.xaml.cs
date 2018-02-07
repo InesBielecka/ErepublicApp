@@ -75,17 +75,19 @@ namespace ErepublicApp
 
                 int battleId = Int32.Parse(txtbx_battle_id.Text);
                 var chosenBattle = campaings.Battles.Values.Where(x => x.Id == battleId);
-                
+
+                tabControlBattles.Items.Add(new TabItem { Header = battleId.ToString() });
 
                 foreach (var batl in chosenBattle)
                 {
+                    
                     lbl_type_show.Content = batl.Type.ToString();
                     lbl_region_show.Content = batl.Region.Name.ToString();
                     int countryInvId = batl.Invader.Id;
                     lbl_invader_country_name.Content = Constants.countriesDic[countryInvId];
                     int countryDefId = batl.Defender.Id;
                     lbl_defender_country_name.Content = Constants.countriesDic[countryDefId];
-
+                   
                     if (batl.Type.ToString() == "tanks")
                     {
                         tab_air.IsEnabled = false;
