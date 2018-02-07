@@ -88,6 +88,8 @@ namespace ErepublicApp
 
                     if (batl.Type.ToString() == "tanks")
                     {
+                        tab_air.IsEnabled = false;
+
                         int countryWallForIdDiv1 = batl.Div["1"].Wall.For;
                         lbl_wall_for_div1.Content = Constants.countriesDic[countryWallForIdDiv1];
                         lbl_wall_dom_div1.Content = batl.Div["1"].Wall.Dom.ToString();
@@ -106,6 +108,11 @@ namespace ErepublicApp
                     }
                     else
                     {
+                        tab_div1.IsEnabled = false;
+                        tab_div2.IsEnabled = false;
+                        tab_div3.IsEnabled = false;
+                        tab_div4.IsEnabled = false;
+
                         int countrWallForIdAir = batl.Div["11"].Wall.For;
                         lbl_wall_for_air.Content = Constants.countriesDic[countrWallForIdAir];
                         lbl_wall_dom_air.Content = batl.Div["11"].Wall.Dom.ToString();
