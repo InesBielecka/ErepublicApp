@@ -93,6 +93,7 @@ namespace ErepublicApp
                         tab_div2.IsEnabled = true;
                         tab_div3.IsEnabled = true;
                         tab_div4.IsEnabled = true;
+                        tab_div4.Focus();
 
                         int countryWallForIdDiv1 = batl.Div["1"].Wall.For;
                         lbl_wall_for_div1.Content = Constants.countriesDic[countryWallForIdDiv1];
@@ -117,6 +118,7 @@ namespace ErepublicApp
                         tab_div3.IsEnabled = false;
                         tab_div4.IsEnabled = false;
                         tab_air.IsEnabled = true;
+                        tab_air.Focus();
 
                         int countrWallForIdAir = batl.Div["11"].Wall.For;
                         lbl_wall_for_air.Content = Constants.countriesDic[countrWallForIdAir];
