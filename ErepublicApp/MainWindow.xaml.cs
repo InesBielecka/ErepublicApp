@@ -40,7 +40,7 @@ namespace ErepublicApp
         public MainWindow()
         {
             InitializeComponent();
-            _currentBattles = new List<int>(_battleId);
+            _currentBattles = new List<int>();//battleId jest 0 przy tworzeniu obiektu, na poczatek pusta lista.
         }
 
 
@@ -78,12 +78,11 @@ namespace ErepublicApp
                 _currentBattles.Add(_battleId);
                 var chosenBattle = _campaings.Battles.Values.Where(x => x.Id == _battleId);
                 var battlesList = _campaings.Battles.Values.Where(x => _currentBattles.Contains(x.Id)).ToList();
+                tabControlBattles.ItemsSource = battlesList;
 
-                tabControlBattles.ItemsSource = _currentBattles;
-
-                var tabItemNew = new TabItem { Header = _battleId.ToString()};
-                var tabItemNewIndex = tabControlBattles.Items.Add(tabItemNew);
-                tabItemNew.Focus();
+                //var tabItemNew = new TabItem { Header = _battleId.ToString()};
+                //var tabItemNewIndex = tabControlBattles.Items.Add(tabItemNew);
+                //tabItemNew.Focus();
             }
             else
             {
@@ -91,50 +90,50 @@ namespace ErepublicApp
             }
         }
 
-        private void FillingData(IEnumerable<Battle> chosenBattle)
-        {
-            foreach (var batl in chosenBattle)
-            {
-                lbl_type_show.Content = batl.Type.ToString();
-                lbl_region_show.Content = batl.Region.Name.ToString();
-                int countryinvid = batl.Invader.Id;
-                lbl_invader_country_name.Content = Constants.countriesDic[countryinvid];
-                int countrydefid = batl.Defender.Id;
-                lbl_defender_country_name.Content = Constants.countriesDic[countrydefid];
+        //private void FillingData(IEnumerable<Battle> chosenBattle)
+        //{
+        //    foreach (var batl in chosenBattle)
+        //    {
+        //        lbl_type_show.Content = batl.Type.ToString();
+        //        lbl_region_show.Content = batl.Region.Name.ToString();
+        //        int countryinvid = batl.Invader.Id;
+        //        lbl_invader_country_name.Content = Constants.countriesDic[countryinvid];
+        //        int countrydefid = batl.Defender.Id;
+        //        lbl_defender_country_name.Content = Constants.countriesDic[countrydefid];
 
-                if (batl.Type.ToString() == "tanks")
-                {
-                    EnableTabs(true);
+        //        if (batl.Type.ToString() == "tanks")
+        //        {
+        //            EnableTabs(true);
 
-                    SetWall(batl, "1", lbl_wall_for_div1, lbl_wall_dom_div1, progressbardiv1);
-                    SetWall(batl, "2", lbl_wall_for_div2, lbl_wall_dom_div2, progressbardiv2);
-                    SetWall(batl, "4", lbl_wall_for_div3, lbl_wall_dom_div3, progressbardiv3);
-                    SetWall(batl, "3", lbl_wall_for_div4, lbl_wall_dom_div4, progressbardiv4);
-                }
-                else
-                {
-                    EnableTabs(false);
-                    SetWall(batl, "11", lbl_wall_for_air, lbl_wall_dom_air, progressbarair);
-                }
-            }
-        }
+        //            SetWall(batl, "1", lbl_wall_for_div1, lbl_wall_dom_div1, progressbardiv1);
+        //            SetWall(batl, "2", lbl_wall_for_div2, lbl_wall_dom_div2, progressbardiv2);
+        //            SetWall(batl, "4", lbl_wall_for_div3, lbl_wall_dom_div3, progressbardiv3);
+        //            SetWall(batl, "3", lbl_wall_for_div4, lbl_wall_dom_div4, progressbardiv4);
+        //        }
+        //        else
+        //        {
+        //            EnableTabs(false);
+        //            SetWall(batl, "11", lbl_wall_for_air, lbl_wall_dom_air, progressbarair);
+        //        }
+        //    }
+        //}
 
-        private void EnableTabs(bool IsTankBattle)
-        {
-            tab_air.IsEnabled = !IsTankBattle;
-            tab_div1.IsEnabled = IsTankBattle;
-            tab_div2.IsEnabled = IsTankBattle;
-            tab_div3.IsEnabled = IsTankBattle;
-            tab_div4.IsEnabled = IsTankBattle;
-            if (IsTankBattle)
-            {
-                tab_div4.Focus();
-            }
-            else
-            {
-                tab_air.Focus();
-            }
-        }
+        //private void EnableTabs(bool IsTankBattle)
+        //{
+        //    tab_air.IsEnabled = !IsTankBattle;
+        //    tab_div1.IsEnabled = IsTankBattle;
+        //    tab_div2.IsEnabled = IsTankBattle;
+        //    tab_div3.IsEnabled = IsTankBattle;
+        //    tab_div4.IsEnabled = IsTankBattle;
+        //    if (IsTankBattle)
+        //    {
+        //        tab_div4.Focus();
+        //    }
+        //    else
+        //    {
+        //        tab_air.Focus();
+        //    }
+        //}
 
         private void SetWall(Battle batl, string divNumber, Label lbl_wall_for, Label lbl_wall_dom, ProgressBar progressbardiv)
         {
@@ -148,13 +147,13 @@ namespace ErepublicApp
         {
             int k = tabControlBattles.SelectedIndex;
 
-            TabItem selectedTab = e.AddedItems[0] as TabItem;
+            //TabItem selectedTab = e.AddedItems[0] as TabItem;
 
-            if (int.TryParse(selectedTab.Header.ToString(), out _battleId))
-            {
-                var chosenBattle = _campaings.Battles.Values.Where(x => x.Id == _battleId);
-                //FillingData(chosenBattle);
-            }
+            //if (int.TryParse(selectedTab.Header.ToString(), out _battleId))
+            //{
+            //    var chosenBattle = _campaings.Battles.Values.Where(x => x.Id == _battleId);
+            //    //FillingData(chosenBattle);
+            //}
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
