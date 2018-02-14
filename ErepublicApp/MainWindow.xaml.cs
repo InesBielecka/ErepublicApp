@@ -83,6 +83,7 @@ namespace ErepublicApp
                 //var tabItemNew = new TabItem { Header = _battleId.ToString()};
                 //var tabItemNewIndex = tabControlBattles.Items.Add(tabItemNew);
                 //tabItemNew.Focus();
+
             }
             else
             {
@@ -135,13 +136,13 @@ namespace ErepublicApp
         //    }
         //}
 
-        private void SetWall(Battle batl, string divNumber, Label lbl_wall_for, Label lbl_wall_dom, ProgressBar progressbardiv)
-        {
-            int countryWallForId = batl.Div[divNumber].Wall.For;
-            lbl_wall_for.Content = Constants.countriesDic[countryWallForId];
-            lbl_wall_dom.Content = batl.Div[divNumber].Wall.Dom.ToString();
-            progressbardiv.Value = Double.Parse(batl.Div[divNumber].Wall.Dom.ToString());
-        }
+        //private void SetWall(Battle batl, string divNumber, Label lbl_wall_for, Label lbl_wall_dom, ProgressBar progressbardiv)
+        //{
+        //    int countryWallForId = batl.Div[divNumber].Wall.For;
+        //    lbl_wall_for.Content = Constants.countriesDic[countryWallForId];
+        //    lbl_wall_dom.Content = batl.Div[divNumber].Wall.Dom.ToString();
+        //    progressbardiv.Value = Double.Parse(batl.Div[divNumber].Wall.Dom.ToString());
+        //}
 
         private void tabControlBattles_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -171,16 +172,6 @@ namespace ErepublicApp
         {
             _response = _client.GetAsync("").Result;
         }
-
-        private void lbl_invader_country_name_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-            int k;
-            if (Int32.TryParse(((TextBox)sender).Text, out k))
-            {
-                ((TextBox)sender).Text = Constants.countriesDic[k];
-            }
-
-        }
+        
     }
 }

@@ -10,5 +10,12 @@ namespace ErepublicApp.Models
     {
         public int For { get; set; }
         public double Dom { get; set; }
+        public Dictionary<string, string> DivisionDictionary { get; set; }
+        public string DictDiv { get { return DivisionDictionary[For.ToString()]; } }
+
+        public Wall()
+        {
+            DivisionDictionary = Constants.countriesDic;
+        }
     }
 }

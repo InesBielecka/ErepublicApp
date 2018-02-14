@@ -26,7 +26,9 @@ namespace ErepublicApp.Models
         public BattleSite Defender { get; set; }
         public Dictionary<string, Division> Div { get; set; }
         public DominationPoints Dom_pts { get; set; }
-        public Dictionary<int,string> BattleDictionary { get; set; }
+        public Dictionary<string,string> BattleDictionary { get; set; }
+        public string DictInv { get { return BattleDictionary[Invader.Id.ToString()]; } }
+        public string DictDef { get { return BattleDictionary[Defender.Id.ToString()]; } }
 
         public Battle()
         {
