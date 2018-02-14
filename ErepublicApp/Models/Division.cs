@@ -14,5 +14,11 @@ namespace ErepublicApp.Models
         public int Epic_type { get; set; }
         public KeyValuePair<string, CombatOrder[]> Co { get; set; }
         public Wall Wall { get; set; }
+        public Dictionary<int, string> DivisionDictionary { get; set; }
+
+        public Division()
+        {
+            DivisionDictionary = Constants.countriesDic;
+        }
     }
 }

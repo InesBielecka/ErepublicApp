@@ -26,7 +26,12 @@ namespace ErepublicApp.Models
         public BattleSite Defender { get; set; }
         public Dictionary<string, Division> Div { get; set; }
         public DominationPoints Dom_pts { get; set; }
-        
+        public Dictionary<int,string> BattleDictionary { get; set; }
+
+        public Battle()
+        {
+            BattleDictionary = Constants.countriesDic;
+        }
 
     }
 }
