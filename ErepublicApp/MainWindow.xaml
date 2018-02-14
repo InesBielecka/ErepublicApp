@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:s="clr-namespace:ErepublicApp.Constants"
         xmlns:local="clr-namespace:ErepublicApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="402" Width="570" Loaded="Window_Loaded">
@@ -23,65 +22,19 @@
                             </Label>
                         </DataTemplate>
                         <DataTemplate x:Key="DivisionItemTemplate">
-                            <!--<TabItem Header="Division 1" x:Name="tab_div1">-->
+                            
                             <Grid Background="#FFE5E5E5">
                                 <Label x:Name="label5" Content="Wall For" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="101"/>
-                                <Label x:Name="lbl_wall_for_div1" Content="{Binding }" HorizontalAlignment="Left" Margin="111,10,0,0" VerticalAlignment="Top" Width="192"/>
+                                <Label x:Name="lbl_wall_for_div1" Content="{Binding Wall.For}" HorizontalAlignment="Left" Margin="111,10,0,0" VerticalAlignment="Top" Width="192"/>
                                 <Label x:Name="label5_Copy" Content="Domination" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="101"/>
                                 <Label x:Name="lbl_wall_dom_div1" Content="{Binding Wall.Dom}" HorizontalAlignment="Left" Margin="111,41,0,0" VerticalAlignment="Top" Width="192"/>
                                 <Grid>
                                     <ProgressBar Background="White" Minimum="0" Maximum="100" Value="0" Name="progressbardiv1" Margin="100,40,10,0" Width="90" VerticalAlignment="Top" HorizontalAlignment="Right" Height="10" />
                                 </Grid>
                             </Grid>
-                            <!--</TabItem>-->
-                            <!--<TabItem Header="Division 2" x:Name="tab_div2">
-                                <Grid Background="#FFE5E5E5">
-                                    <Label x:Name="label66" Content="Wall For" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="101"/>
-                                    <Label x:Name="lbl_wall_for_div2" Content="" HorizontalAlignment="Left" Margin="99,10,0,0" VerticalAlignment="Top" Width="204"/>
-                                    <Label x:Name="label5_Copy1" Content="Domination" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="101"/>
-                                    <Label x:Name="lbl_wall_dom_div2" Content="{Binding Dom}" HorizontalAlignment="Left" Margin="99,41,0,0" VerticalAlignment="Top" Width="204"/>
-                                    <Grid>
-                                        <ProgressBar Background="White" Minimum="0" Maximum="100" Value="0" Name="progressbardiv2" Margin="100,40,10,0" Width="90" VerticalAlignment="Top" HorizontalAlignment="Right" Height="10" />
-                                    </Grid>
-                                </Grid>
-                            </TabItem>
-                            <TabItem Header="Division 3" x:Name="tab_div3">
-                                <Grid Background="#FFE5E5E5">
-                                    <Label x:Name="label68" Content="Wall For" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="101"/>
-                                    <Label x:Name="lbl_wall_for_div3" Content="" HorizontalAlignment="Left" Margin="99,10,0,0" VerticalAlignment="Top" Width="204"/>
-                                    <Label x:Name="label5_Copy2" Content="Domination" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="101"/>
-                                    <Label x:Name="lbl_wall_dom_div3" Content="{Binding Dom}" HorizontalAlignment="Left" Margin="99,41,0,0" VerticalAlignment="Top" Width="204"/>
-                                    <Grid>
-                                        <ProgressBar Background="White" Minimum="0" Maximum="100" Value="0" Name="progressbardiv3" Margin="100,40,10,0" Width="90" VerticalAlignment="Top" HorizontalAlignment="Right" Height="10" />
-                                    </Grid>
-                                </Grid>
-                            </TabItem>
-                            <TabItem Header="Division 4" x:Name="tab_div4">
-                                <Grid Background="#FFE5E5E5">
-                                    <Label x:Name="label70" Content="Wall For" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="101"/>
-                                    <Label x:Name="lbl_wall_for_div4" Content="" HorizontalAlignment="Left" Margin="99,10,0,0" VerticalAlignment="Top" Width="204"/>
-                                    <Label x:Name="label5_Copy3" Content="Domination" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="101"/>
-                                    <Label x:Name="lbl_wall_dom_div4" Content="{Binding Dom}" HorizontalAlignment="Left" Margin="99,41,0,0" VerticalAlignment="Top" Width="204"/>
-                                    <Grid>
-                                        <ProgressBar Background="White" Minimum="0" Maximum="100" Value="0" Name="progressbardiv4" Margin="100,40,10,0" Width="90" VerticalAlignment="Top" HorizontalAlignment="Right" Height="10" />
-                                    </Grid>
-                                </Grid>
-                            </TabItem>
-                            <TabItem Header="Aircraft" x:Name="tab_air">
-                                <Grid Background="#FFE5E5E5">
-                                    <Label x:Name="label72" Content="Wall For" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="101"/>
-                                    <Label x:Name="lbl_wall_for_air" Content="" HorizontalAlignment="Left" Margin="99,10,0,0" VerticalAlignment="Top" Width="204"/>
-                                    <Label x:Name="label5_Copy4" Content="Domination" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="101"/>
-                                    <Label x:Name="lbl_wall_dom_air" Content="{Binding Dom}" HorizontalAlignment="Left" Margin="99,41,0,0" VerticalAlignment="Top" Width="204"/>
-                                    <Grid>
-                                        <ProgressBar Minimum="0" Maximum="100" Value="0" Name="progressbarair" Margin="100,40,10,0" Width="90" VerticalAlignment="Top" HorizontalAlignment="Right" Height="10" Background="White" />
-                                    </Grid>
-                                </Grid>
-                            </TabItem>-->
+                            
                         </DataTemplate>
                     </Grid.Resources>
-
-
 
                     <Label x:Name="label1" Content="Type" HorizontalAlignment="Left" Margin="42,43,0,0" VerticalAlignment="Top" Width="45"/>
                     <Label x:Name="label2" Content="Region" HorizontalAlignment="Left" Margin="42,74,0,0" VerticalAlignment="Top" Width="57"/>
@@ -89,8 +42,12 @@
                     <Label x:Name="label4" Content="Defender" HorizontalAlignment="Left" Margin="276,74,0,0" VerticalAlignment="Top" Width="67"/>
                     <Label x:Name="lbl_type_show" Content="{Binding Type }" HorizontalAlignment="Left" Margin="124,43,0,0" VerticalAlignment="Top" Width="95" />
                     <Label x:Name="lbl_region_show" Content="{Binding Region.Name}" HorizontalAlignment="Left" Margin="124,74,0,0" VerticalAlignment="Top" Width="147"/>
-                    <Label x:Name="lbl_invader_country_name" Content="" HorizontalAlignment="Left" Margin="348,43,0,0" VerticalAlignment="Top" Width="148"/>
-                    <Label x:Name="lbl_defender_country_name" Content="" HorizontalAlignment="Left" Margin="348,74,0,0" VerticalAlignment="Top" Width="148"/>
+                    <TextBox Background="Transparent"
+         BorderThickness="0"
+         IsReadOnly="True"
+         TextWrapping="Wrap" x:Name="lbl_invader_country_name" Text="{Binding Invader.Id}" HorizontalAlignment="Left" Margin="348,49,0,0"  VerticalAlignment="Top" Width="148" IsUndoEnabled="True" TextChanged="lbl_invader_country_name_TextChanged"/>
+                   
+                    <Label x:Name="lbl_defender_country_name" Content="{Binding Defender.Id}" HorizontalAlignment="Left" Margin="348,74,0,0" VerticalAlignment="Top" Width="148"/>
 
                     <TabControl x:Name="tabControl" ItemsSource="{Binding Div.Values}" HorizontalAlignment="Left" Height="107" Margin="17,113,0,0" VerticalAlignment="Top" Width="329" SelectionChanged="tabControl_SelectionChanged" RenderTransformOrigin="0.5,0.5"
                 ItemTemplate="{StaticResource DivisionHeaderTemplate}" ContentTemplate="{StaticResource DivisionItemTemplate}">
@@ -108,6 +65,7 @@
 
         <TextBox x:Name="txtbx_battle_id" HorizontalAlignment="Left" Height="23" Margin="52,15,0,0" TextWrapping="Wrap" Text="Type Battle ID" VerticalAlignment="Top" Width="120" TextChanged="txtbx_battle_id_TextChanged" GotFocus="txtbx_battle_id_GotFocus" PreviewTextInput="NumberValidationTxtbx_battle_id"/>
         <Button x:Name="btn_show_battle" Content="Add" HorizontalAlignment="Left" Margin="231,18,0,0" VerticalAlignment="Top" Width="75" Click="btn_show_battle_Click"/>
+        
         <Label x:Name="lbl_error_mssg" Content=" " HorizontalAlignment="Left" Margin="339,18,0,0" VerticalAlignment="Top" Width="159" Height="46"/>
     </Grid>
 </Window>

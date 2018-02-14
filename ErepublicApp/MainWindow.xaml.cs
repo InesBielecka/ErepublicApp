@@ -41,8 +41,8 @@ namespace ErepublicApp
         {
             InitializeComponent();
             _currentBattles = new List<int>();//battleId jest 0 przy tworzeniu obiektu, na poczatek pusta lista.
-        }
 
+        }
 
         private void tabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -170,6 +170,17 @@ namespace ErepublicApp
         private void _timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             _response = _client.GetAsync("").Result;
+        }
+
+        private void lbl_invader_country_name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            int k;
+            if (Int32.TryParse(((TextBox)sender).Text, out k))
+            {
+                ((TextBox)sender).Text = Constants.countriesDic[k];
+            }
+
         }
     }
 }
