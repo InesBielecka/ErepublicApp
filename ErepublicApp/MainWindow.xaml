@@ -6,12 +6,14 @@
         xmlns:local="clr-namespace:ErepublicApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="402" Width="570" Loaded="Window_Loaded">
-    <Grid Name="mainGrid">
+    <Grid Name="mainGrid" FocusManager.FocusedElement="{Binding Id_Header}">
         <Grid.Resources>
             <DataTemplate x:Key="CustomHeaderTemplate">
-                <Label Content="{Binding Id}"/>
+                <Label Content="{Binding Id}" Name="Id_Header" />
             </DataTemplate>
             <DataTemplate x:Key="CustomItemTemplate">
+
+
 
                 <Grid Background="#FFE5E5E5" >
                     <Grid.Resources>
@@ -33,7 +35,7 @@
                         </DataTemplate>
                     </Grid.Resources>
 
-                    <Label x:Name="label1" Content="Type" HorizontalAlignment="Left" Margin="42,43,0,0" VerticalAlignment="Top" Width="45"/>
+                    <Label x:Name="label1"  Content="Type" HorizontalAlignment="Left" Margin="42,43,0,0" VerticalAlignment="Top" Width="45"/>
                     <Label x:Name="label2" Content="Region" HorizontalAlignment="Left" Margin="42,74,0,0" VerticalAlignment="Top" Width="57"/>
                     <Label x:Name="label3" Content="Invader" HorizontalAlignment="Left" Margin="276,43,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.868,0.346" Width="67"/>
                     <Label x:Name="label4" Content="Defender" HorizontalAlignment="Left" Margin="276,74,0,0" VerticalAlignment="Top" Width="67"/>
@@ -66,10 +68,11 @@
                     
                     ContentTemplate="{StaticResource CustomItemTemplate}"
                    >
-            
+
         </TabControl>
 
-        <TextBox x:Name="txtbx_battle_id" HorizontalAlignment="Left" Height="23" Margin="52,15,0,0" TextWrapping="Wrap" Text="Type Battle ID" VerticalAlignment="Top" Width="120" TextChanged="txtbx_battle_id_TextChanged" GotFocus="txtbx_battle_id_GotFocus" PreviewTextInput="NumberValidationTxtbx_battle_id"/>
+        <TextBox x:Name="txtbx_battle_id" HorizontalAlignment="Left" Height="23" Margin="52,15,0,0" TextWrapping="Wrap"
+                 Text="Type Battle ID" VerticalAlignment="Top" Width="120" TextChanged="txtbx_battle_id_TextChanged" GotFocus="txtbx_battle_id_GotFocus" PreviewTextInput="NumberValidationTxtbx_battle_id"/>
         <Button x:Name="btn_show_battle" Content="Add" HorizontalAlignment="Left" Margin="231,18,0,0" VerticalAlignment="Top" Width="75" Click="btn_show_battle_Click"/>
 
         <Label x:Name="lbl_error_mssg" Content=" " HorizontalAlignment="Left" Margin="339,18,0,0" VerticalAlignment="Top" Width="159" Height="46"/>
